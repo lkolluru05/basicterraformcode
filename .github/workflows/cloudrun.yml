@@ -31,13 +31,13 @@ jobs:
         service_account: 'projectcreate@cmetestproj.iam.gserviceaccount.com'
 
       
-    - id: 'Set up Cloud SDK'
+    - id: 'SetupCloudSDK'
       uses: 'google-github-actions/setup-gcloud@v2'
       with:
         version: '>= 363.0.0'
 
-    - id: 'Use gcloud CLI'
+    - id: 'UsegcloudCLI'
       run: 'gcloud info'
 
-    - id: 'Infrastructure Manager test'
+    - id: 'InfrastructureManagertest'
       run: 'gcloud infra-manager --help'
