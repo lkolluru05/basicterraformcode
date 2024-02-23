@@ -30,20 +30,14 @@ jobs:
         workload_identity_provider: 'projects/890407152272/locations/global/workloadIdentityPools/github/providers/my-mac-github'
         service_account: 'projectcreate@cmetestproj.iam.gserviceaccount.com'
 
-    - id: 'deploy'
-      uses: 'google-github-actions/deploy-cloud-functions@v2'
-      with:
-        name: 'my-function'
-        runtime: 'nodejs20'
-
-    # Example of using the output
-    - id: 'test'
-      run: 'curl "${{ steps.deploy.outputs.url }}"'
       
-    - name: 'Set up Cloud SDK'
+    - id: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v2'
       with:
         version: '>= 363.0.0'
 
-    - name: 'Use gcloud CLI'
+    - id: 'Use gcloud CLI'
       run: 'gcloud info'
+
+    - id: 'Infrastructure Manager test'
+      run: 'gcloud infra-manager --help'
