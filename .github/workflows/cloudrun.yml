@@ -36,8 +36,12 @@ jobs:
       with:
         version: '>= 363.0.0'
 
-    - id: 'UsegcloudCLI'
-      run: 'gcloud info'
+    - id: 'list-all-files'
+      run: 'ls -ltrh'
 
-    - id: 'InfrastructureManagertest'
+    - id: 'Infrastructure-Manager-test'
       run: 'gcloud infra-manager --help'
+      
+    - id : 'Infrastructure-Manager-Deployment'
+      run: 'gcloud infra-manager deployments apply projects/cmetestproj/locations/us-central1/deployments/inframanager     --service-account projects/cmetestproj/serviceAccounts/projectcreate@cmetestproj.iam.gserviceaccount.com     --local-source="."'
+    
